@@ -24,6 +24,7 @@
 
 csv_parser::csv_parser(std::string filename)
   {
+    printf("reading csv file...\n");
     csv_file.open(filename.c_str());
     if (!csv_file.is_open())
       {
@@ -65,6 +66,11 @@ int csv_parser::total_lines()
   return no_lines;
 }
 
+int  csv_parser::total_columns(){
+  std::string line = get_line(1);
+  return fields(line);
+
+}
 int csv_parser::fields(std::string line)
 {
   std::string::iterator it;
@@ -136,13 +142,14 @@ std::string csv_parser::get_value(int row,int column)
 }
 
  std::vector< std::vector<double> > csv_parser::get_matrix(){
+    printf("loading csv file to a matrix...\n");
     std::vector< std::vector<double> > matrix;
     int n = total_lines();
     for(int i = 1; i <= n; ++i){
       std::vector<double> temp;
       std::string line = get_line(i);
       int d = fields(line);
-      for(int j = 1; j <= n; ++j){
+      for(int j = 1; j <= d; ++j){
         std::string value = get_value(i,j);
         double v = std::stod(value);
         temp.push_back(v);

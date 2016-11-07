@@ -36,10 +36,11 @@ public:
   csv_parser(std::string filename);
   ~csv_parser();
   int total_lines();
+  int total_columns();
   std::string get_line(int line_number);//Returns entire line as a string based on line number.
   int fields(std::string line); //Returns Number of fields in the line
   std::string get_value(int row,int column); //Returns the field in the specified row and column.
-  std::vector< std::vector<double> > get_matrix();
+  std::vector< std::vector<double> > get_matrix();// Returns the matrix in CSV file
 };
 
 #endif
