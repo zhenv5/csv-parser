@@ -18,6 +18,8 @@
 #
 # Author:   Sibi <sibi@psibi.in>
 --------------------------------------------------------------------*/
+#include <vector>
+#include <string>
 #include "csv_parser.hpp"
 
 csv_parser::csv_parser(std::string filename)
@@ -133,3 +135,19 @@ std::string csv_parser::get_value(int row,int column)
     }
 }
 
+ std::vector< std::vector<double> > csv_parser::get_matrix(){
+    std::vector< std::vector<double> > matrix;
+    int n = total_lines();
+    for(int i = 1; i <= n; ++i){
+      std::vector<double> temp;
+      std::string line = get_line(i);
+      int d = fields(line);
+      for(int j = 1; j <= n; ++j){
+        std::string value = get_value(i,j);
+        double v = std::stod(value);
+        temp.push_back(v);
+      }
+      matrix.push_back(temp);
+    }
+    return matrix;
+ }
