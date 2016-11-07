@@ -28,8 +28,6 @@ int main()
   //For getting number of fields in a particular row.
   int total_fields = csv.fields(csv.get_line(3));
   int total_lines = csv.total_lines();
-  string a = "3.444";
-  double v = std::stod(a);
   cout << "v is: " << v << endl;
   cout<<"Value in (3,4) :"<<value<<endl;
   cout <<"Total lines: " << total_lines <<endl;
@@ -37,5 +35,5 @@ int main()
   cout<<"Total fields in row 3:"<<total_fields<<endl;
   std::vector< std::vector<double> > matrix = csv.get_matrix();
   cout<<"matrix.size: " << matrix.size() << endl;
-  
+
 }

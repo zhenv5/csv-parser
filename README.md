@@ -17,6 +17,9 @@ string line = csv.get_line(3);
 
 //For getting number of fields in a particular row.
 int total_fields = csv.fields(csv.get_line(3));
+
+//Read Matrix from CSV File
+std::vector< std::vector<double> > matrix = csv.get_matrix();
 </pre>
 
 For demo, see the code demo.cpp under examples folder.
